@@ -5,6 +5,8 @@ import get from "axios"
 import Input from "./components/input";
 import Result from "./components/result";
 import WeatherData from "./types/weather";
+import Header from "./components/header";
+
 
 
 function App() {
@@ -33,12 +35,14 @@ function App() {
 
   return (
     <>
-      <div>Current City: <strong>{city}</strong></div>
-      <Input city={city} handleChange={handleChange} handleSubmit={handleSubmit} />
-
-      { weather !== undefined &&
-        <Result weather={weather} />
-      }
+      <Header />
+      <br />
+      <div className="container">
+        <Input city={city} handleChange={handleChange} handleSubmit={handleSubmit} /> <br />
+        { weather !== undefined &&
+          <Result weather={weather} />
+        }
+      </div>
     </>
   )
 }
